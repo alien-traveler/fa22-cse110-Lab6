@@ -12,10 +12,10 @@ class RecipeCard extends HTMLElement {
     // A3. TODO - Create a style element - This will hold all of the styles for the Web Component
     // A4. TODO - Insert all of the styles from cardTemplate.html into the <style> element you just made
     // A5. TODO - Append the <style> and <article> elements to the Shadow DOM
-    var shadow = this.attachShadow({mode: "open"});
+    this.attachShadow({mode: "open"});
     var article = document.createElement("article");
     var style = document.createElement("style");
-    style.textContent = `
+    style.innerHTML = `
       * {
         font-family: sans-serif;
         margin: 0;
@@ -91,9 +91,9 @@ class RecipeCard extends HTMLElement {
         color: #70757A;
         font-size: 12px;
       }
-    `
-    shadow.appendChild(article);
-    shadow.appendChild(style);
+    `;
+    this.shadowRoot.appendChild(article);
+    this.shadowRoot.appendChild(style);
   }
 
   /**
